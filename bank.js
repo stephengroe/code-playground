@@ -1,9 +1,10 @@
 // Basic bank class in JavaScript
 
 class Bank {
+  accounts = [];
+
   constructor(name) {
     this.name = name;
-    this.accounts = [];
   }
 
   createAccount(name) {
@@ -13,9 +14,10 @@ class Bank {
 }
 
 class Account {
+  balance = 0;
+
   constructor(name) {
     this.name = name;
-    this.balance = 0;
   }
 
   deposit(amount) {
