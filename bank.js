@@ -7,13 +7,23 @@ class Bank {
   }
 
   createAccount(name) {
+    const newAccount = new Account(name);
+    this.accounts.push(newAccount);
   }
-
 }
 
 class Account {
   constructor(name) {
+    this.name = name;
+    this.balance = 0;
+  }
 
+  deposit(amount) {
+    this.balance += amount;
+  }
+
+  withdraw(amount) {
+    this.balance -= amount;
   }
 }
 
@@ -29,6 +39,9 @@ console.assert(myBank.name === 'My bank', "Doesn't have name");
 // Bank can create accounts
 myBank.createAccount('John Doe');
 console.assert(myBank.accounts.length === 1, "Can't create account");
+
+// Accounts have user name
+console.assert(myBank.accounts[0]?.name === 'John Doe', "Accounts don't have name");
 
 // Each account starts with no money
 console.assert(myBank.accounts[0]?.balance === 0, "Accounts don't have balance");
